@@ -9,5 +9,14 @@ match (priority, response):
     case ("low", "no"):
         print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
 
-    case _:
-        print(f"{task} is a medium priority task")
+    case ("high", _):  # High priority, regardless of time-bound status
+        print(f"Reminder: {task} has **high priority**. Address it soon.")
+
+    case (_, "yes"):  # Time-bound, regardless of priority
+        print(f"Reminder: {task} is **time-bound**. Don't miss the deadline!")
+
+    case ("medium", "no"):  # Specific combination
+        print(f"Note: {task} is a medium-priority, non-time-bound task.")
+
+    case _:  # Default case for anything else
+        print(f"Task: {task}. Priority: {priority}. Time-bound: {response}.")
