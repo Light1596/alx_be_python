@@ -27,4 +27,4 @@ try:
             convert_to_celsius(temp)
 
 except ValueError as e:
-        print("Only integers or floats allowed")
+        print("Invalid temperature. Please enter a numeric value.")
